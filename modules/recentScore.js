@@ -1,8 +1,7 @@
 import ScoreList from './ScoreList.js';
 
-const apiList = [{ name: 'Nelson', score: 10 }, { name: 'Mauricio', score: 50 }];
-const recentScore = (container) => {
-  const list = new ScoreList(apiList);
+const recentScore = async (container) => {
+  const list = new ScoreList;
   const scoreListContainer = document.createElement('div');
   scoreListContainer.id = 'score-list-container';
   container.append(scoreListContainer);
@@ -13,11 +12,14 @@ const recentScore = (container) => {
   recentHeader.append(title);
   const refreshBtn = document.createElement('button');
   refreshBtn.innerHTML = 'Refresh';
+  refreshBtn.addEventListener('click', () => {
+    list.getList(scoreList);
+  })
   recentHeader.append(refreshBtn);
   const scoreList = document.createElement('ul');
   scoreList.id = 'score-list';
   scoreListContainer.append(scoreList);
-  list.print(scoreList);
+  list.getList(scoreList);
 };
 
 export default recentScore;

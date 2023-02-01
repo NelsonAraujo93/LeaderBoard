@@ -18,3 +18,27 @@ form {
   flex-direction: column;
   gap: 20px;
 }
+
+div#add-container {
+  flex: 1 0 0;
+}
+
+ul#score-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  gap: 20px;
+}
+
+li:nth-child(even) {
+  background-color: rgb(180, 180, 180);
+}

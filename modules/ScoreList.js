@@ -1,18 +1,45 @@
 export default class ScoreList {
-  constructor(list) {
-    this.localStorageList = list;
+  constructor() {
+    this.apiList = [];
   }
 
   print(container) {
-    this.localStorageList.map((item) => {
+    container.innerHTML = '';
+    this.apiList.map((item) => {
       const ulItem = document.createElement('li');
-      const name = document.createElement('div');
+      const user = document.createElement('div');
       const score = document.createElement('div');
-      name.innerHTML = item.name;
+      user.innerHTML = item.user;
       score.innerHTML = item.score;
-      ulItem.append(name);
+      ulItem.append(user);
       ulItem.append(score);
       return container.append(ulItem);
     });
+  }
+
+  addScore(userData, scoreData) {
+    fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/ndRdpIGELEXUgnHiuYRW/scores/', {
+      method: 'POST',
+      body: JSON.stringify({
+        user: userData,
+        score: scoreData,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+    .then((response) => response.json())
+    .then((json) => console.log(json));
+  }
+
+  async getList(container) {
+    const fetchServ = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/ndRdpIGELEXUgnHiuYRW/scores/');
+    this.fetching(fetchServ, container);
+  }
+
+  async fetching(fetchServ, container){
+    const toJson = await fetchServ.json();
+    this.apiList = toJson.result;
+    this.print(container);
   }
 }
