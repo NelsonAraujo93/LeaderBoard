@@ -1,9 +1,12 @@
 const addYourScore = (container) => {
+  const addScoreContainer = document.createElement('div');
+  addScoreContainer.id = 'add-container';
+  container.append(addScoreContainer);
   const title = document.createElement('h2');
   title.innerHTML = 'Add your score';
-  container.append(title);
+  addScoreContainer.append(title);
   const form = document.createElement('form');
-  container.append(form);
+  addScoreContainer.append(form);
   const nameInput = document.createElement('input');
   nameInput.setAttribute('type', 'text');
   nameInput.setAttribute('placeholder', 'Name...');
@@ -18,6 +21,6 @@ const addYourScore = (container) => {
   submitBtn.setAttribute('type', 'submit');
   submitBtn.setAttribute('label', 'Submit');
   form.append(submitBtn);
-}
+};
 
 module.exports = addYourScore;

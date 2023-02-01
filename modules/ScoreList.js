@@ -2,6 +2,7 @@ export default class ScoreList {
   constructor(list) {
     this.localStorageList = list;
   }
+
   print(container) {
     this.localStorageList.map((item) => {
       const ulItem = document.createElement('li');
@@ -12,6 +13,6 @@ export default class ScoreList {
       ulItem.append(name);
       ulItem.append(score);
       return container.append(ulItem);
-    })
+    });
   }
-}  
+}
