@@ -1,4 +1,7 @@
+import ScoreList from './ScoreList.js';
+
 const addYourScore = (container) => {
+  const list = new ScoreList();
   const addScoreContainer = document.createElement('div');
   addScoreContainer.id = 'add-container';
   container.append(addScoreContainer);
@@ -6,6 +9,7 @@ const addYourScore = (container) => {
   title.innerHTML = 'Add your score';
   addScoreContainer.append(title);
   const form = document.createElement('form');
+  form.id = 'main-form';
   addScoreContainer.append(form);
   const nameInput = document.createElement('input');
   nameInput.setAttribute('type', 'text');
@@ -17,10 +21,19 @@ const addYourScore = (container) => {
   scoreInput.setAttribute('placeholder', 'Score...');
   form.append(scoreInput);
 
-  const submitBtn = document.createElement('input');
-  submitBtn.setAttribute('type', 'submit');
-  submitBtn.setAttribute('label', 'Submit');
+  const submitBtn = document.createElement('button');
+  submitBtn.setAttribute('type', 'button');
+  submitBtn.innerHTML = 'Submit';
+  submitBtn.addEventListener('click', () => {
+    if (scoreInput.value === '' || nameInput.value === '') {
+      return alert('Please fill the User and Score fields');
+    }
+    if (!Number.isNaN(parseInt(scoreInput.value, 10))) {
+      return list.addScore(nameInput.value, scoreInput.value);
+    }
+    return alert('Score must be a numeric value');
+  });
   form.append(submitBtn);
 };
 
-module.exports = addYourScore;
+export default addYourScore;
