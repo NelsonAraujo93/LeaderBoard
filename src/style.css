@@ -122,6 +122,10 @@ button:hover {
   transform: scale(1.02);
 }
 
+#main-form button {
+  align-self: flex-end;
+}
+
 @media (max-width: 767px) {
   section#dynamic-content {
     flex-direction: column-reverse;
