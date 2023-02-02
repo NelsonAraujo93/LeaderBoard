@@ -68,7 +68,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://nelsonaraujo93.github.io/LeaderBoard/dist)
+- [Live Demo Link](https://nelsonaraujo93.github.io/LeaderBoard/public)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -87,7 +87,7 @@ In order to run this project you need:
 
 ### Setup
 
-In order to run this project you need: clone this repo [https://github.com/NelsonAraujo93/leaderBoard]
+In order to run this project you need: clone this repo [https://github.com/NelsonAraujo93/LeaderBoard]
 
 
 ### Install
@@ -126,7 +126,7 @@ Once the project is installed you only need to open the index.html file on your 
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/NelsonAraujo93/LeaderBoard/issues/1)
+Feel free to check the [issues page](https://github.com/NelsonAraujo93/LeaderBoard/issues/2)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
