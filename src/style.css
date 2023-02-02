@@ -121,3 +121,9 @@ button {
 button:hover {
   transform: scale(1.02);
 }
+
+@media (max-width: 767px) {
+  section#dynamic-content {
+    flex-direction: column-reverse;
+  }
+}
