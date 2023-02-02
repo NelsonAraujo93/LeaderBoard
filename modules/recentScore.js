@@ -6,6 +6,7 @@ const recentScore = async (container) => {
   scoreListContainer.id = 'score-list-container';
   container.append(scoreListContainer);
   const recentHeader = document.createElement('div');
+  recentHeader.className = 'recent-score-header';
   scoreListContainer.append(recentHeader);
   const title = document.createElement('h2');
   title.innerHTML = 'Recent scores';

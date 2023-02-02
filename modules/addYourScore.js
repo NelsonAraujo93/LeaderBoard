@@ -25,11 +25,15 @@ const addYourScore = (container) => {
   submitBtn.setAttribute('type', 'button');
   submitBtn.innerHTML = 'Submit';
   submitBtn.addEventListener('click', () => {
-    if (scoreInput.value === '' || nameInput.value === '') {
+    const name = nameInput.value;
+    const score = scoreInput.value;
+    if (score === '' || name === '') {
       return alert('Please fill the User and Score fields');
     }
-    if (!Number.isNaN(parseInt(scoreInput.value, 10))) {
-      return list.addScore(nameInput.value, scoreInput.value);
+    if (!Number.isNaN(parseInt(score, 10))) {
+      nameInput.value = '';
+      scoreInput.value = '';
+      return list.addScore(name, score);
     }
     return alert('Score must be a numeric value');
   });
