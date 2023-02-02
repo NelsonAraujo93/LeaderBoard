@@ -1,7 +1,7 @@
 import ScoreList from './ScoreList.js';
 
 const addYourScore = (container) => {
-  const list = new ScoreList
+  const list = new ScoreList();
   const addScoreContainer = document.createElement('div');
   addScoreContainer.id = 'add-container';
   container.append(addScoreContainer);
@@ -19,23 +19,20 @@ const addYourScore = (container) => {
   const scoreInput = document.createElement('input');
   scoreInput.setAttribute('type', 'numeric');
   scoreInput.setAttribute('placeholder', 'Score...');
-  scoreInput.required;
   form.append(scoreInput);
 
   const submitBtn = document.createElement('button');
   submitBtn.setAttribute('type', 'button');
-  submitBtn.innerHTML = 'Submit'
+  submitBtn.innerHTML = 'Submit';
   submitBtn.addEventListener('click', () => {
-    if(scoreInput.value === '' || nameInput.value === ''){
-      alert('Please fill the User and Score fields');
-    }else {
-      if(isNaN(scoreInput.value)){ 
-        alert('Score must be numeric');
-      }else {
-        list.addScore(nameInput.value, scoreInput.value);
-      };
+    if (scoreInput.value === '' || nameInput.value === '') {
+      return alert('Please fill the User and Score fields');
     }
-  })
+    if (!Number.isNaN(parseInt(scoreInput.value, 10))) {
+      return list.addScore(nameInput.value, scoreInput.value);
+    }
+    return alert('Score must be a numeric value');
+  });
   form.append(submitBtn);
 };
 

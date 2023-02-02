@@ -17,7 +17,7 @@ export default class ScoreList {
     });
   }
 
-  addScore(userData, scoreData) {
+  addScore = (userData, scoreData) => {
     fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/ndRdpIGELEXUgnHiuYRW/scores/', {
       method: 'POST',
       body: JSON.stringify({
@@ -27,9 +27,7 @@ export default class ScoreList {
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       },
-    })
-    .then((response) => response.json())
-    .then((json) => console.log(json));
+    });
   }
 
   async getList(container) {
@@ -37,7 +35,7 @@ export default class ScoreList {
     this.fetching(fetchServ, container);
   }
 
-  async fetching(fetchServ, container){
+  async fetching(fetchServ, container) {
     const toJson = await fetchServ.json();
     this.apiList = toJson.result;
     this.print(container);
