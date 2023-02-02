@@ -9,7 +9,7 @@ export default class ScoreList {
       const ulItem = document.createElement('li');
       const user = document.createElement('div');
       const score = document.createElement('div');
-      user.innerHTML = item.user;
+      user.innerHTML = `${item.user} :`;
       score.innerHTML = item.score;
       ulItem.append(user);
       ulItem.append(score);
